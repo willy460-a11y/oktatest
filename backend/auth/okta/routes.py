@@ -34,6 +34,8 @@ def _safe_next_url(next_url: str | None) -> str:
  
     # Relative path is always OK
     if next_url.startswith("/"):
+        if next_url.startswith("/docflow"):
+            return DEFAULT_DESTINATION
         return next_url
  
     # Absolute URL: only allow if same host
