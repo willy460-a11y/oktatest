@@ -2,13 +2,10 @@
 // ⚠️ DEPLOYMENT: Update API_BASE_URL for production environment
 
 import { Document } from '../types/docflow';
+import { API_CONFIG } from './config';
 
 // ===================== CONFIGURATION =====================
-// Voor development: http://localhost:5000
-// Voor productie: update naar je server IP (bijv. http://172.27.91.100:5000)
-export const API_BASE_URL = typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL
-  ? import.meta.env.VITE_API_URL
-  : 'http://localhost:5000';
+export const API_BASE_URL = API_CONFIG.BASE_URL;
 
 // ===================== ERROR HANDLING =====================
 export class ApiError extends Error {

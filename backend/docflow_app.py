@@ -49,7 +49,7 @@ app.config.update(
 @app.route("/docflow")
 @app.route("/docflow/")
 def docflow_alias():
-    return redirect("/docflow/")
+    return redirect("/")
  
  
 # 🔑 DIT WAS DE ONTBREKENDE SCHAKEL

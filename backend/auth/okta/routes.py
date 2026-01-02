@@ -11,7 +11,7 @@ from .config import load_okta_settings
 okta_bp = Blueprint("okta_auth", __name__, url_prefix="/api/auth/okta")
  
 # ✅ Pas aan als jouw startpagina anders is
-DEFAULT_DESTINATION = "/docflow"
+DEFAULT_DESTINATION = "/"
  
  
 def user_is_authenticated() -> bool:
