@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1763990899444",
+    "text": "Bepaalde sorteerfuncties uitdoen bij statussen waar je het niet kan gebruiken. (zoals de combinatie van ''toegewezen'' en ''concept'')",
+    "author": "Willy",
+    "timestamp": "2025-11-24T13:28:19.444619Z",
+    "votes": 0,
+    "status": "new",
+    "votedBy": [],
+    "metadata": {
+      "ipAddress": "192.168.1.5",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "browser": "Chrome",
+      "os": "Windows",
+      "device": "Desktop",
+      "screenResolution": "1920x1080"
+    },
+    "adminNote": ""
+  },
+  {
+    "id": "1763986831250",
+    "text": "File helper werkend krijgen.",
+    "author": "Tim",
+    "timestamp": "2025-11-24T12:20:31.250032Z",
+    "votes": 3,
+    "status": "in-progress",
+    "votedBy": [
+      "Tim",
+      "Willy",
+      "willy"
+    ],
+    "metadata": {
+      "ipAddress": "192.168.1.47",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "browser": "Chrome",
+      "os": "Windows",
+      "device": "Desktop",
+      "screenResolution": "1920x1080"
+    },
+    "adminNote": ""
+  }
+]
