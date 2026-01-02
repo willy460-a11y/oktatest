@@ -1,0 +1,9 @@
+<!-- DocFlow Logo - Vervang dit bestand met je eigen logo -->
+<!-- Aanbevolen formaat: SVG, PNG of JPG -->
+<!-- Aanbevolen afmetingen: hoogte 40-50px, breedte proportioneel -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <!-- Achtergrond badge -->
+  <rect x="5" y="5" width="190" height="40" rx="8" fill="#0077C8" opacity="0.1"/>
+  <!-- Logo tekst -->
+  <text x="100" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0077C8" text-anchor="middle">TRESCAL</text>
+</svg>
