@@ -8,6 +8,7 @@ import { Badge } from './ui/badge';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { motion } from 'motion/react';
 import { toast } from 'sonner@2.0.3';
+import { FILE_HELPER_CONFIG } from '../lib/config';
 
 interface DocumentCardProps {
   document: Document;
@@ -46,7 +47,7 @@ const DocumentCardComponent = ({ document, currentUser, onAction, bulkMode, isSe
     try {
       toast.info('Opening bestand...', { duration: 1500 });
       
-      const response = await fetch('http://localhost:5000/open', {
+      const response = await fetch(`${FILE_HELPER_CONFIG.BASE_URL}/open`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

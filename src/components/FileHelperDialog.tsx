@@ -5,7 +5,7 @@ import { AlertCircle, CheckCircle, XCircle, RefreshCw, Download, Minimize2, Sett
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { toast } from "sonner@2.0.3";
-import { NETWORK_PATHS } from "../lib/config";
+import { FILE_HELPER_CONFIG, NETWORK_PATHS } from "../lib/config";
 
 interface FileHelperDialogProps {
   open: boolean;
@@ -20,9 +20,9 @@ export function FileHelperDialog({ open, onOpenChange }: FileHelperDialogProps) 
     setHelperStatus('checking');
     
     try {
-      // Eerst proberen via localhost (direct connection)
+      // Eerst proberen via de File Helper (direct connection)
       try {
-        const localResponse = await fetch('http://localhost:5000/health', {
+        const localResponse = await fetch(`${FILE_HELPER_CONFIG.BASE_URL}/health`, {
           method: 'GET',
           signal: AbortSignal.timeout(2000), // 2 second timeout
         });
@@ -37,7 +37,7 @@ export function FileHelperDialog({ open, onOpenChange }: FileHelperDialogProps) 
         // Local check failed, try via backend
       }
       
-      // Als localhost faalt, probeer via backend API
+      // Als directe check faalt, probeer via backend API
       const backendResponse = await fetch('/api/file-helper/status', {
         method: 'GET',
         signal: AbortSignal.timeout(3000),
@@ -303,7 +303,7 @@ export function FileHelperDialog({ open, onOpenChange }: FileHelperDialogProps) 
                         <ul className="text-xs space-y-1 text-[--muted]">
                           <li>✅ Verschijnt als groen icoon in system tray (bij klok)</li>
                           <li>✅ Draait onzichtbaar op de achtergrond (geen venster)</li>
-                          <li>✅ Start local server op localhost:5000</li>
+                          <li>✅ Start local server op de geconfigureerde helper-URL</li>
                           <li>✅ Is direct klaar voor gebruik!</li>
                         </ul>
                       </div>
@@ -434,10 +434,10 @@ export function FileHelperDialog({ open, onOpenChange }: FileHelperDialogProps) 
               <div>
                 <p className="font-medium text-[--fg] mb-1">📡 Server Informatie:</p>
                 <ul className="ml-4 space-y-1 text-xs">
-                  <li>• <strong>Poort:</strong> localhost:5000</li>
+                  <li>• <strong>Poort:</strong> volgens je helper-configuratie</li>
                   <li>• <strong>Protocol:</strong> HTTP REST API</li>
                   <li>• <strong>Endpoints:</strong> GET /health, POST /open</li>
-                  <li>• <strong>Beveiliging:</strong> Alleen lokale verbindingen (127.0.0.1)</li>
+                  <li>• <strong>Beveiliging:</strong> Alleen lokale verbindingen</li>
                 </ul>
               </div>
 

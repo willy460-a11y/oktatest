@@ -16,7 +16,7 @@ OKTA_DOMAIN=your-okta-domain
 OKTA_ISSUER=your-okta-issuer
 OKTA_CLIENT_ID=your-client-id
 OKTA_CLIENT_SECRET=your-client-secret
-OKTA_REDIRECT_URI=http://localhost:5000/api/auth/okta/callback
+OKTA_REDIRECT_URI=https://jouw-host/api/auth/okta/callback
 FLASK_SECRET_KEY=replace-with-a-secret
 ```
 

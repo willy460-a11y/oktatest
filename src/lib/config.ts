@@ -15,12 +15,22 @@ export const NETWORK_PATHS = {
  * Voor productie: pas BASE_URL aan naar je backend URL
  * Of gebruik environment variables als je een build tool hebt die dat ondersteunt
  */
+const resolveBaseUrl = (envValue?: string) => {
+  const trimmed = envValue?.trim();
+  if (trimmed) {
+    return trimmed.replace(/\/$/, '');
+  }
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  return '';
+};
+
 export const API_CONFIG = {
-  // ⚠️ DEPLOYMENT FIX: Vervang met je echte backend URL
-  // Flask draait standaard op poort 5000
-  BASE_URL: typeof process !== 'undefined' && process.env?.VITE_API_URL 
-    ? process.env.VITE_API_URL 
-    : 'http://localhost:5000',
+  // Gebruik VITE_API_URL voor afwijkende hosts/poorten. Anders dezelfde origin als de frontend.
+  BASE_URL: resolveBaseUrl(
+    typeof import.meta !== 'undefined' ? import.meta.env?.VITE_API_URL : undefined
+  ),
   ENDPOINTS: {
     // Document endpoints
     DOCS: '/api/docs',
@@ -53,6 +63,13 @@ export const API_CONFIG = {
     INTRO_IMAGE: '/intro-image',
   },
   TIMEOUT: 30000, // 30 seconden
+} as const;
+
+export const FILE_HELPER_CONFIG = {
+  // Optioneel override via VITE_FILE_HELPER_URL; default = dezelfde origin als de frontend.
+  BASE_URL: resolveBaseUrl(
+    typeof import.meta !== 'undefined' ? import.meta.env?.VITE_FILE_HELPER_URL : undefined
+  ),
 } as const;
 
 /**

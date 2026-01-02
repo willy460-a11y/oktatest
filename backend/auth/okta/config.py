@@ -37,9 +37,6 @@ def load_okta_settings() -> OktaSettings:
     if not issuer and domain:
         issuer = f"https://{domain}/oauth2/default"
 
-    if not redirect_uri:
-        redirect_uri = "http://localhost:5000/api/auth/okta/callback"
-
     missing = [
         name
         for name, value in {
